@@ -10,34 +10,30 @@ namespace assignment1
     {
         static void Main(string[] args)
         {
-           var s =  File.ReadLines("./data/userItem.data");
+           var s =  File.ReadAllLines("./data/userItem.data");
 
-           Dictionary<string,Dictionary<int, double>> users = new Dictionary<string,Dictionary<int, double>>();
+           var parsedRow = s.Select(line => {
+                var values = line.Split(',');
+                var id = values.First();
+                var key = int.Parse(values[1]);
+                var value = double.Parse(values.Last(), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
+                return new { id = id, key = key, value = value };
+           });   
 
 
-           for (int i = 0; i < s.Count(); i++)
+           var usersToValues = parsedRow.Select(current => current.id).Distinct().ToDictionary(k => k, v => new Dictionary<int,double>());
+        
+           foreach (var item in parsedRow)
            {
-               var userid = s.ElementAt(i).Split(',').First();
-               var key = int.Parse(s.ElementAt(i).Split(',').ElementAt(1));
-               var value = double.Parse(s.ElementAt(i).Split(',').Last(), System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
-
-               if(users.Count == 0){
-                   users.Add(userid,new Dictionary<int,double>());
-                   users[userid].Add(key,value);
-               }else{
-                    if(users.ContainsKey(userid)){
-                        users[userid].Add(key,value);
-                    }
-                    else{
-                        users.Add(userid,new Dictionary<int,double>());
-                        users[userid].Add(key,value);
-                    }
-                }
+               usersToValues[item.id].Add(item.key, item.value);
            }
-           foreach (var item in users)
+
+ 
+           foreach (var item in usersToValues)
            {
+               Console.WriteLine("ID: {0}", item.Key);
                foreach (var item1 in item.Value){
-                   Console.WriteLine(" id " +item.Key +  " Key " + item1.Key + " Value " + item1.Value);
+                   Console.WriteLine(" Key " + item1.Key + " Value " + item1.Value);
                }
            }
         }
