@@ -1,0 +1,8 @@
+/Users/Brian/INFDTA1-02/Assignment2/bin/Debug/netcoreapp1.1/Assignment2.deps.json
+/Users/Brian/INFDTA1-02/Assignment2/bin/Debug/netcoreapp1.1/Assignment2.runtimeconfig.json
+/Users/Brian/INFDTA1-02/Assignment2/bin/Debug/netcoreapp1.1/Assignment2.runtimeconfig.dev.json
+/Users/Brian/INFDTA1-02/Assignment2/bin/Debug/netcoreapp1.1/Assignment2.dll
+/Users/Brian/INFDTA1-02/Assignment2/bin/Debug/netcoreapp1.1/Assignment2.pdb
+/Users/Brian/INFDTA1-02/Assignment2/obj/Debug/netcoreapp1.1/Assignment2.AssemblyInfo.cs
+/Users/Brian/INFDTA1-02/Assignment2/obj/Debug/netcoreapp1.1/Assignment2.dll
+/Users/Brian/INFDTA1-02/Assignment2/obj/Debug/netcoreapp1.1/Assignment2.pdb
